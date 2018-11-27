@@ -12,6 +12,15 @@
  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+
+/*
+ * 修改记录：
+ * 2018-11-27 添加SPI0设备（设备文件spidev1.0）
+ *            (1)由于默认SPI0被i2c复用，所以注释掉了i2c的初始化，修改的地方见 ok335x_dev_cfg[] 。
+ *            (2)添加SPI0设备，主要修改见 am335x_spi0_slave_info[] 。
+ *            (3)在 SPI初始化函数中添加对spi0的配置，修改的函数见 spi_init 。
+ *            提示：menuconfig界面中最好也要进行相应配置。
+*/
 #include <linux/kernel.h>
 #include <linux/init.h>
 #include <linux/i2c.h>
@@ -2210,6 +2219,7 @@ static const struct flash_platform_data am335x_spi_flash = {
  * So setup Max speed to be less than that of Controller speed
  */
 static struct spi_board_info am335x_spi0_slave_info[] = {
+#if defined(CONFIG_CAN_MCP251X)&&defined(CONFIG_OK335XD)
 	{
 		.modalias      = "m25p80",
 		.platform_data = &am335x_spi_flash,
@@ -2218,6 +2228,14 @@ static struct spi_board_info am335x_spi0_slave_info[] = {
 		.bus_num       = 1,
 		.chip_select   = 0,
 	},
+#elif defined(CONFIG_SPI_SPIDEV) 
+	{	.modalias      = "spidev",
+                .max_speed_hz  = 48000000,//48Mbps
+                .bus_num       = 1, //SPI0挂载在总线1，可以在文件系统的设备中看到spidev1.0
+                .chip_select   = 0,
+                .mode = SPI_MODE_1,
+        },
+#endif
 };
 static struct spi_board_info am335x_spi1_slave_info[] = {
 #if defined(CONFIG_CAN_MCP251X)&&defined(CONFIG_OK335XD)
@@ -2233,7 +2251,7 @@ static struct spi_board_info am335x_spi1_slave_info[] = {
 #elif defined(CONFIG_SPI_SPIDEV) 
 	{	.modalias      = "spidev",
                 .max_speed_hz  = 48000000,//48Mbps
-                .bus_num       = 2,
+                .bus_num       = 2, //SPI1挂载在总线2,可以在文件系统的设备中看到spidev2.0
                 .chip_select   = 0,
                 .mode = SPI_MODE_1,
         },
@@ -3259,8 +3277,15 @@ void mini_setup(void)
 static void spi_init(int evm_id, int profile)
 {
 #if defined(CONFIG_OK335XD)||defined(CONFIG_OK335XS2)	
+	//SPI0
+	setup_pin_mux(spi0_pin_mux);
+	spi_register_board_info(am335x_spi0_slave_info,ARRAY_SIZE(am335x_spi0_slave_info));
+	
+	//SPI1
 	setup_pin_mux(spi1_pin_mux);
 	spi_register_board_info(am335x_spi1_slave_info,ARRAY_SIZE(am335x_spi1_slave_info));
+	
+
 #elif defined(CONFIG_OK335XS) 
 	setup_pin_mux(spi1_pin_mux_s);
     spi_register_board_info(am335x_spi1_slave_info_s,ARRAY_SIZE(am335x_spi1_slave_info_s));
@@ -3485,7 +3510,7 @@ static struct evm_dev_cfg ok335x_dev_cfg[] = {
 	#endif
 	{net_init , DEV_ON_BASEBOARD, PROFILE_ALL},
 	{lcd_init , DEV_ON_BASEBOARD, PROFILE_ALL},
-	{i2c_init , DEV_ON_BASEBOARD, PROFILE_ALL},
+	//{i2c_init , DEV_ON_BASEBOARD, PROFILE_ALL},
 	{ecap_init, DEV_ON_BASEBOARD, PROFILE_ALL},
 	{keys_init, DEV_ON_BASEBOARD, PROFILE_ALL},
 	{led_init , DEV_ON_BASEBOARD, PROFILE_ALL},
