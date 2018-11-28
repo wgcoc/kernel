@@ -19,7 +19,10 @@
  *            (1)由于默认SPI0被i2c复用，所以注释掉了i2c的初始化，修改的地方见 ok335x_dev_cfg[] 。
  *            (2)添加SPI0设备，主要修改见 am335x_spi0_slave_info[] 。
  *            (3)在 SPI初始化函数中添加对spi0的配置，修改的函数见 spi_init 。
- *            提示：menuconfig界面中最好也要进行相应配置。
+ *            提示：menuconfig界面中也要做修改
+ *	      (1)Network support -->CAN bus subsystem support -->CAN Device Drivers -->
+ *               将Platform CAN drivers with Netlink support的星去掉，见《AM335X-Linux用户手册》的 "3.3.10 SPI 测试"
+ *            (2)Device Drivers -->I2C support -->将I2C device interface的星去掉，i2c和spi0复用，这里禁掉i2c
 */
 #include <linux/kernel.h>
 #include <linux/init.h>
@@ -1075,7 +1078,7 @@ static struct pinmux_config gpio_led_mux[] = {
 #if defined(CONFIG_OK335XD)
 	{"gpmc_a0.gpio1_16", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{"gpmc_a1.gpio1_17", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a2.gpio1_18", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a2.gpio1_18", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{"gpmc_a3.gpio1_19", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{"emu1.gpio3_8", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 #elif defined(CONFIG_OK335XS)
@@ -1119,7 +1122,7 @@ static struct pinmux_config mini_gpio_mux[] = {
 		{"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 	//	{"gpmc_wpn.gpio0_31", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"gpmc_a11.gpio1_27", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-		{"gpmc_a10.gpio1_26", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+	//      {"gpmc_a10.gpio1_26", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"mii1_txclk.gpio3_9", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"mii1_rxdv.gpio3_4", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
@@ -1138,7 +1141,9 @@ static struct pinmux_config mini_gpio_mux[] = {
 		{"xdma_event_intr0.gpio0_19", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT_PULLUP},
 #if defined(CONFIG_OK335XD)
 		
-		{"xdma_event_intr1.gpio0_20", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},	
+		{"xdma_event_intr1.gpio0_20", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		{"gpmc_a2.gpio1_18", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		{"gpmc_a10.gpio1_26", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},	
 #endif 
 		{NULL, 0},
 };
@@ -1182,11 +1187,11 @@ static void setup_pin_mux(struct pinmux_config *pin_mux)
 
 /* pinmux for keypad device */
 static struct pinmux_config matrix_keypad_pin_mux[] = {
-	{"gpmc_a5.gpio1_21",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-	{"gpmc_a6.gpio1_22",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-	{"gpmc_a9.gpio1_25",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a10.gpio1_26", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a11.gpio1_27", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a5.gpio1_21",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+	//{"gpmc_a6.gpio1_22",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+	//{"gpmc_a9.gpio1_25",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a10.gpio1_26", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a11.gpio1_27", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{NULL, 0},
 };
 
