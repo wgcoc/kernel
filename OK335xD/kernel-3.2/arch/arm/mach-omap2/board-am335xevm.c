@@ -23,6 +23,10 @@
  *	      (1)Network support -->CAN bus subsystem support -->CAN Device Drivers -->
  *               将Platform CAN drivers with Netlink support的星去掉，见《AM335X-Linux用户手册》的 "3.3.10 SPI 测试"
  *            (2)Device Drivers -->I2C support -->将I2C device interface的星去掉，i2c和spi0复用，这里禁掉i2c
+*
+* 2018-11-29 配置GPIO1_26和GPIO1_27为输出模式 
+* 	     主要修改am335x_evm_keypad_row_gpios，两个默认配置注释掉
+*
 */
 #include <linux/kernel.h>
 #include <linux/init.h>
@@ -1212,7 +1216,7 @@ const struct matrix_keymap_data am335x_evm_keymap_data = {
 };
 
 static const unsigned int am335x_evm_keypad_row_gpios[] = {
-	GPIO_TO_PIN(1, 25), GPIO_TO_PIN(1, 26), GPIO_TO_PIN(1, 27)
+	GPIO_TO_PIN(1, 25)//, GPIO_TO_PIN(1, 26), GPIO_TO_PIN(1, 27)
 };
 
 static const unsigned int am335x_evm_keypad_col_gpios[] = {
