@@ -16,17 +16,17 @@
 /*
  * 修改记录：
  * 2018-11-27 添加SPI0设备（设备文件spidev1.0）
- *            (1)由于默认SPI0被i2c复用，所以注释掉了i2c的初始化，修改的地方见 ok335x_dev_cfg[] 。
- *            (2)添加SPI0设备，主要修改见 am335x_spi0_slave_info[] 。
- *            (3)在 SPI初始化函数中添加对spi0的配置，修改的函数见 spi_init 。
+ *            (1)由于默认SPI0被i2c复用，所以注释掉了i2c的初始化，修改的地方见 ok335x_dev_cfg[]
+ *            (2)添加SPI0设备，主要修改见 am335x_spi0_slave_info[] 
+ *            (3)在 SPI初始化函数中添加对spi0的配置，修改的函数见spi_init
  *            提示：menuconfig界面中也要做修改
  *	      (1)Network support -->CAN bus subsystem support -->CAN Device Drivers -->
  *               将Platform CAN drivers with Netlink support的星去掉，见《AM335X-Linux用户手册》的 "3.3.10 SPI 测试"
  *            (2)Device Drivers -->I2C support -->将I2C device interface的星去掉，i2c和spi0复用，这里禁掉i2c
-*
-* 2018-11-29 配置GPIO1_26和GPIO1_27为输出模式 
-* 	     主要修改am335x_evm_keypad_row_gpios，两个默认配置注释掉
-*
+ *
+ * 2018-11-29 配置GPIO1_26和GPIO1_27为输出模式 
+ * 	     主要修改am335x_evm_keypad_row_gpios，两个默认配置注释掉
+ *
 */
 #include <linux/kernel.h>
 #include <linux/init.h>
@@ -817,7 +817,7 @@ static struct pinmux_config rgmii1_pin_mux[] = {
 static struct pinmux_config rgmii2_pin_mux[] = {
 	{"gpmc_a0.rgmii2_tctl", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
 	{"gpmc_a1.rgmii2_rctl", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
-	{"gpmc_a2.rgmii2_td3", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
+	//{"gpmc_a2.rgmii2_td3", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
 	{"gpmc_a3.rgmii2_td2", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
 	{"gpmc_a4.rgmii2_td1", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
 	{"gpmc_a5.rgmii2_td0", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
@@ -825,7 +825,7 @@ static struct pinmux_config rgmii2_pin_mux[] = {
 	{"gpmc_a7.rgmii2_rclk", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
 	{"gpmc_a8.rgmii2_rd3", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
 	{"gpmc_a9.rgmii2_rd2", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
-	{"gpmc_a10.rgmii2_rd1", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
+	//{"gpmc_a10.rgmii2_rd1", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
 	{"gpmc_a11.rgmii2_rd0", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
 	{"mdio_data.mdio_data", OMAP_MUX_MODE0 | AM33XX_PIN_INPUT_PULLUP},
 	{"mdio_clk.mdio_clk", OMAP_MUX_MODE0 | AM33XX_PIN_OUTPUT_PULLUP},
@@ -1061,7 +1061,7 @@ static struct pinmux_config gpio_keys_pin_mux_forlinx[] = {
     {"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
     {"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-    {"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+    //{"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
     {"gpmc_a9.gpio1_25", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 #elif defined(CONFIG_OK335XS)
     {"xdma_event_intr0.gpio0_19", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
@@ -1404,10 +1404,10 @@ static struct pinmux_config ehrpwm0b_pin_mux[] = {
 	{NULL, 0},
 };
 
-static struct pinmux_config ehrpwm1a_pin_mux[] = {
-    {"gpmc_a2.ehrpwm1a", OMAP_MUX_MODE6 | AM33XX_PIN_OUTPUT},
-	{NULL, 0},
-};
+//static struct pinmux_config ehrpwm1a_pin_mux[] = {
+//    {"gpmc_a2.ehrpwm1a", OMAP_MUX_MODE6 | AM33XX_PIN_OUTPUT},
+//	{NULL, 0},
+//};
 
 
 #define AM335XEVM_WLAN_PMENA_GPIO	GPIO_TO_PIN(1, 30)
@@ -1429,7 +1429,7 @@ struct wl12xx_platform_data am335xevm_wlan_data = {
 /* Module pin mux for wlan and bluetooth */
 static struct pinmux_config mmc2_wl12xx_pin_mux[] = {
 	{"gpmc_a1.mmc2_dat0", OMAP_MUX_MODE3 | AM33XX_PIN_INPUT_PULLUP},
-	{"gpmc_a2.mmc2_dat1", OMAP_MUX_MODE3 | AM33XX_PIN_INPUT_PULLUP},
+	//{"gpmc_a2.mmc2_dat1", OMAP_MUX_MODE3 | AM33XX_PIN_INPUT_PULLUP},
 	{"gpmc_a3.mmc2_dat2", OMAP_MUX_MODE3 | AM33XX_PIN_INPUT_PULLUP},
 	{"gpmc_ben1.mmc2_dat3", OMAP_MUX_MODE3 | AM33XX_PIN_INPUT_PULLUP},
 	{"gpmc_csn3.mmc2_cmd", OMAP_MUX_MODE3 | AM33XX_PIN_INPUT_PULLUP},
@@ -3105,12 +3105,12 @@ static struct gpio_keys_button am335x_evm_gpio_buttons_forlinx[] = {
 		.gpio                   = GPIO_TO_PIN(1, 23),
 		.desc                   = "SW4",
 	},
-	{
-		.code                   = BTN_4,
-		.gpio                   = GPIO_TO_PIN(1, 24),
-		.desc                   = "SW5",
-		.wakeup                 = 1,
-	},
+//	{
+//		.code                   = BTN_4,
+//		.gpio                   = GPIO_TO_PIN(1, 24),
+//		.desc                   = "SW5",
+//		.wakeup                 = 1,
+//	},
 	{
 		.code                   = BTN_5,
 		.gpio                   = GPIO_TO_PIN(1, 25),
@@ -3200,11 +3200,11 @@ static struct gpio_led gpio_leds[] = {
 		.gpio			= GPIO_TO_PIN(1, 17),	/* D2 */
 		.active_low		= 1,
 	},
-	{
-		.name			= "usr2",
-		.gpio			= GPIO_TO_PIN(1, 18),	/* D3 */
-		.active_low		= 1,
-	},
+//	{
+//		.name			= "usr2",
+//		.gpio			= GPIO_TO_PIN(1, 18),	/* D3 */
+//		.active_low		= 1,
+//	},
 	{
 		.name			= "usr3",
 		.gpio			= GPIO_TO_PIN(1, 19),	/* D4 */
