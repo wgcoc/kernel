@@ -816,16 +816,16 @@ static struct pinmux_config rgmii1_pin_mux[] = {
 
 /* Module pin mux for rgmii2 */
 static struct pinmux_config rgmii2_pin_mux[] = {
-	{"gpmc_a0.rgmii2_tctl", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
-	{"gpmc_a1.rgmii2_rctl", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
+	//{"gpmc_a0.rgmii2_tctl", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
+	//{"gpmc_a1.rgmii2_rctl", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
 	//{"gpmc_a2.rgmii2_td3", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
-	{"gpmc_a3.rgmii2_td2", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
-	{"gpmc_a4.rgmii2_td1", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
-	{"gpmc_a5.rgmii2_td0", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
-	{"gpmc_a6.rgmii2_tclk", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
-	{"gpmc_a7.rgmii2_rclk", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
-	{"gpmc_a8.rgmii2_rd3", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
-	{"gpmc_a9.rgmii2_rd2", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
+	//{"gpmc_a3.rgmii2_td2", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
+	//{"gpmc_a4.rgmii2_td1", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
+	//{"gpmc_a5.rgmii2_td0", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
+	//{"gpmc_a6.rgmii2_tclk", OMAP_MUX_MODE2 | AM33XX_PIN_OUTPUT},
+	//{"gpmc_a7.rgmii2_rclk", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
+	//{"gpmc_a8.rgmii2_rd3", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
+	//{"gpmc_a9.rgmii2_rd2", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
 	//{"gpmc_a10.rgmii2_rd1", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
 	{"gpmc_a11.rgmii2_rd0", OMAP_MUX_MODE2 | AM33XX_PIN_INPUT_PULLDOWN},
 	{"mdio_data.mdio_data", OMAP_MUX_MODE0 | AM33XX_PIN_INPUT_PULLUP},
@@ -1048,20 +1048,20 @@ static struct pinmux_config d_can1_pin_mux[] = {
 
 /* pinmux for gpio based key */
 static struct pinmux_config gpio_keys_pin_mux[] = {
-	{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{NULL, 0},
 };
 
 /* pinmux for gpio based key */
 static struct pinmux_config gpio_keys_pin_mux_forlinx[] = {
 #if defined(CONFIG_OK335XD) 
-    {"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-    {"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-    {"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+      //{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+      //{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+      //{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+      //{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
     //{"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
     {"gpmc_a9.gpio1_25", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 #elif defined(CONFIG_OK335XS)
@@ -1081,10 +1081,17 @@ static struct pinmux_config gpio_keys_pin_mux_forlinx[] = {
 /* pinmux for led device */
 static struct pinmux_config gpio_led_mux[] = {
 #if defined(CONFIG_OK335XD)
-	{"gpmc_a0.gpio1_16", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a1.gpio1_17", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a0.gpio1_16", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a1.gpio1_17", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	//{"gpmc_a2.gpio1_18", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a3.gpio1_19", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a3.gpio1_19", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a9.gpio1_25", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a10.gpio1_26", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{"emu1.gpio3_8", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 #elif defined(CONFIG_OK335XS)
 	{"mcasp0_axr0.gpio3_16", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
@@ -1124,12 +1131,12 @@ static struct pinmux_config mini_gpio_mux[] = {
 		{"mcasp0_fsx.gpio3_15", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"mcasp0_axr0.gpio3_16", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"mcasp0_aclkx.gpio3_14", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-		{"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		//{"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 	//	{"gpmc_wpn.gpio0_31", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"gpmc_a11.gpio1_27", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-	        {"gpmc_a10.gpio1_26", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+	        //{"gpmc_a10.gpio1_26", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"mii1_txclk.gpio3_9", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-		{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		//{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"mii1_rxdv.gpio3_4", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"mii1_rxclk.gpio3_10", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"uart0_rtsn.gpio1_9", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
@@ -1137,9 +1144,9 @@ static struct pinmux_config mini_gpio_mux[] = {
 		{"uart1_ctsn.gpio0_12", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"uart1_rtsn.gpio0_13", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		//  {"gpmc_a11.gpio1_19", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-		{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-		{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
-		{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		//{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		//{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		//{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"gpmc_csn0.gpio1_29", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},//boot
 		{"spi0_cs0.gpio0_5", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},//boot
 		{"spi0_d1.gpio0_4", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},//boot
@@ -1147,7 +1154,9 @@ static struct pinmux_config mini_gpio_mux[] = {
 #if defined(CONFIG_OK335XD)
 		
 		{"xdma_event_intr1.gpio0_20", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		{"gpmc_a0.gpio1_16", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 		{"gpmc_a2.gpio1_18", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+		{"gpmc_a11.gpio1_19", OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
 #endif 
 		{NULL, 0},
 };
@@ -1216,7 +1225,7 @@ const struct matrix_keymap_data am335x_evm_keymap_data = {
 };
 
 static const unsigned int am335x_evm_keypad_row_gpios[] = {
-	GPIO_TO_PIN(1, 25)//, GPIO_TO_PIN(1, 26), GPIO_TO_PIN(1, 27)
+	//GPIO_TO_PIN(1, 25)//, GPIO_TO_PIN(1, 26), GPIO_TO_PIN(1, 27)
 };
 
 static const unsigned int am335x_evm_keypad_col_gpios[] = {
@@ -3084,7 +3093,7 @@ static void mmc0_no_cd_init(int evm_id, int profile)
 /* Configure GPIOs for GPIO Keys */
 static struct gpio_keys_button am335x_evm_gpio_buttons_forlinx[] = {
 #if defined(CONFIG_OK335XD)
-	{
+/*	{
 		.code                   = BTN_0,
 		.gpio                   = GPIO_TO_PIN(1, 20),
 		.desc                   = "SW1",
@@ -3105,6 +3114,7 @@ static struct gpio_keys_button am335x_evm_gpio_buttons_forlinx[] = {
 		.gpio                   = GPIO_TO_PIN(1, 23),
 		.desc                   = "SW4",
 	},
+*/
 //	{
 //		.code                   = BTN_4,
 //		.gpio                   = GPIO_TO_PIN(1, 24),
@@ -3190,11 +3200,11 @@ static void keys_init(int evm_id, int profile)
 
 static struct gpio_led gpio_leds[] = {
 #if defined(CONFIG_OK335XD)
-	{
-		.name			= "usr0",
-		.gpio			= GPIO_TO_PIN(1, 16),	/* D1 */
-		.active_low		= 1,
-	},
+//	{
+//		.name			= "usr0",
+//		.gpio			= GPIO_TO_PIN(1, 16),	/* D1 */
+//		.active_low		= 1,
+//	},
 	{
 		.name			= "usr1",
 		.gpio			= GPIO_TO_PIN(1, 17),	/* D2 */
@@ -3205,11 +3215,46 @@ static struct gpio_led gpio_leds[] = {
 //		.gpio			= GPIO_TO_PIN(1, 18),	/* D3 */
 //		.active_low		= 1,
 //	},
+//	{
+//		.name			= "usr3",
+//		.gpio			= GPIO_TO_PIN(1, 19),	/* D4 */
+//		.active_low		= 1,
+//	},
+ 	{
+                .name                   = "IO1_20",
+                .gpio                   = GPIO_TO_PIN(1, 20),   /* D */
+                .active_low             = 1,
+        },
+ 	{
+                .name                   = "IO1_21",
+                .gpio                   = GPIO_TO_PIN(1, 21),   /* D */
+                .active_low             = 1,
+        },
+ 	{
+                .name                   = "IO1_22",
+                .gpio                   = GPIO_TO_PIN(1, 22),   /* D */
+                .active_low             = 1,
+        },
 	{
-		.name			= "usr3",
-		.gpio			= GPIO_TO_PIN(1, 19),	/* D4 */
-		.active_low		= 1,
-	},
+                .name                   = "IO1_23",
+                .gpio                   = GPIO_TO_PIN(1, 23),   /* D */
+                .active_low             = 1,
+        },
+	{
+                .name                   = "IO1_24",
+                .gpio                   = GPIO_TO_PIN(1, 24),   /* D */
+                .active_low             = 1,
+        },
+	{
+                .name                   = "IO1_25",
+                .gpio                   = GPIO_TO_PIN(1, 25),   /* D */
+                .active_low             = 1,
+        },
+ 	{
+                .name                   = "IO1_26",
+                .gpio                   = GPIO_TO_PIN(1, 26),   /* D4 */
+                .active_low             = 1,
+        },
 	{
 		.name			= "heartbeat",
 		.gpio			= GPIO_TO_PIN(3, 8),	/* D4 */
