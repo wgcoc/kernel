@@ -375,6 +375,6 @@ IF SOMETHING GOES WRONG:
    disregards the starting offset for which the kernel is compiled.
 
 cp arch/arm/configs/ok335xd_evm_linux_sdio_defconfig .config
-make CROSS_COMPILE=arm-arago-linux-gnueabi- ARCH=arm uImage
+make CROSS_COMPILE=arm-linux-gnueabihf- ARCH=arm uImage
 
 

@@ -1048,8 +1048,8 @@ static struct pinmux_config d_can1_pin_mux[] = {
 
 /* pinmux for gpio based key */
 static struct pinmux_config gpio_keys_pin_mux[] = {
-	//{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	//{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	//{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	//{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{NULL, 0},
@@ -1058,8 +1058,8 @@ static struct pinmux_config gpio_keys_pin_mux[] = {
 /* pinmux for gpio based key */
 static struct pinmux_config gpio_keys_pin_mux_forlinx[] = {
 #if defined(CONFIG_OK335XD) 
-      //{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-      //{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+      {"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+      {"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
       //{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
       //{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
     //{"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
@@ -1085,8 +1085,8 @@ static struct pinmux_config gpio_led_mux[] = {
 	//{"gpmc_a1.gpio1_17", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	//{"gpmc_a2.gpio1_18", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	//{"gpmc_a3.gpio1_19", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a4.gpio1_20", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	//{"gpmc_a5.gpio1_21", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{"gpmc_a6.gpio1_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{"gpmc_a7.gpio1_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
 	{"gpmc_a8.gpio1_24", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
@@ -3093,7 +3093,7 @@ static void mmc0_no_cd_init(int evm_id, int profile)
 /* Configure GPIOs for GPIO Keys */
 static struct gpio_keys_button am335x_evm_gpio_buttons_forlinx[] = {
 #if defined(CONFIG_OK335XD)
-/*	{
+	{
 		.code                   = BTN_0,
 		.gpio                   = GPIO_TO_PIN(1, 20),
 		.desc                   = "SW1",
@@ -3103,7 +3103,7 @@ static struct gpio_keys_button am335x_evm_gpio_buttons_forlinx[] = {
 		.gpio                   = GPIO_TO_PIN(1, 21),
 		.desc                   = "SW2",
 	},
-	{
+/*	{
 		.code                   = BTN_2,
 		.gpio                   = GPIO_TO_PIN(1, 22),
 		.desc                   = "SW3",
@@ -3220,16 +3220,16 @@ static struct gpio_led gpio_leds[] = {
 //		.gpio			= GPIO_TO_PIN(1, 19),	/* D4 */
 //		.active_low		= 1,
 //	},
- 	{
-                .name                   = "IO1_20",
-                .gpio                   = GPIO_TO_PIN(1, 20),   /* D */
-                .active_low             = 1,
-        },
- 	{
-                .name                   = "IO1_21",
-                .gpio                   = GPIO_TO_PIN(1, 21),   /* D */
-                .active_low             = 1,
-        },
+// 	{
+//                .name                   = "IO1_20",
+//                .gpio                   = GPIO_TO_PIN(1, 20),   /* D */
+//                .active_low             = 1,
+//        },
+// 	{
+//                .name                   = "IO1_21",
+//                .gpio                   = GPIO_TO_PIN(1, 21),   /* D */
+//                .active_low             = 1,
+//        },
  	{
                 .name                   = "IO1_22",
                 .gpio                   = GPIO_TO_PIN(1, 22),   /* D */
